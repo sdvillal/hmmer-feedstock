@@ -1,13 +1,13 @@
 package:
   name: hmmer
-  version: "3.3.2"
+  version: "3.3.2.post0"
 
 source:
-  url: http://eddylab.org/software/hmmer/hmmer-3.3.2.tar.gz
-  sha256: 92fee9b5efe37a5276352d3502775e7c46e9f7a0ee45a331eacb2a0cac713c69
+  url: https://github.com/EddyRivasLab/hmmer/archive/182088b79cdc3248c1a2f42901795fa3004e92ab.zip
+  sha256: 4abdd793d79cba8fc85aeead0dfc6486f2d89a83e9fd2764a2b9bc21a9b93f14
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
