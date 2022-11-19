@@ -10,10 +10,10 @@ source:
 
 build:
   number: 0
+  skip: True  # [not unix]
 
 requirements:
   build:
-    - gnuconfig  # [unix]
     - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
