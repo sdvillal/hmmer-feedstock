@@ -2,6 +2,9 @@
 
 set -e -u -x
 
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./build-aux
+
 ./configure --prefix=$PREFIX
 make -j4
 make install
@@ -11,4 +14,3 @@ make install
 mkdir -p $PREFIX/share
 rm -rf ${SRC_DIR}/easel/miniapps
 cp -r ${SRC_DIR}/easel $PREFIX/share/
-

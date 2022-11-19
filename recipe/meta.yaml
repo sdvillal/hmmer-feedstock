@@ -1,3 +1,5 @@
+# Conda-forge friendly hmmer package.
+# Targeting Apple Silicon (so we use the dev branch until official support is released)
 package:
   name: hmmer
   version: "3.3.2.post0"
@@ -11,6 +13,7 @@ build:
 
 requirements:
   build:
+    - gnuconfig  # [unix]
     - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}

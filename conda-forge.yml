@@ -27,3 +27,6 @@ azure:
   user_or_org: sdvillal
   upload_packages: True
   force: False
+
+build_platform: {osx_arm64: osx_64}
+test_on_native_only: true
