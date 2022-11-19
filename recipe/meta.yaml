@@ -1,12 +1,23 @@
 # Conda-forge friendly hmmer package.
 # Targeting Apple Silicon (so we use the dev branch until official support is released)
+# Based on the bioconda recipe. See:
+#   https://bioconda.github.io/recipes/hmmer/README.html
+
 package:
   name: hmmer
   version: "3.3.2.post0"
 
+#
+# As of 2022/11/19, develop branches of hmmer and easel have gone desynchronized
+# Here we are using the latest develop tip of HMMER against an older develop tip of EASEL
+# Pay attention and fix as soon as possible
+#
 source:
-  url: https://github.com/EddyRivasLab/hmmer/archive/182088b79cdc3248c1a2f42901795fa3004e92ab.zip
-  sha256: 4abdd793d79cba8fc85aeead0dfc6486f2d89a83e9fd2764a2b9bc21a9b93f14
+  - url: https://github.com/EddyRivasLab/hmmer/archive/182088b79cdc3248c1a2f42901795fa3004e92ab.zip
+    sha256: 4abdd793d79cba8fc85aeead0dfc6486f2d89a83e9fd2764a2b9bc21a9b93f14
+  - url: https://github.com/EddyRivasLab/easel/archive/1ee9e51ae6728bf62e931d50dd38e3a80a189e7b.zip
+    sha256: 65435f872c385812e50d1681db2840fd52f14ca04f4cc22012946340291aca2e
+    folder: easel
 
 build:
   number: 0
@@ -14,6 +25,8 @@ build:
 
 requirements:
   build:
+    - gnuconfig
+    - autoconf
     - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
@@ -43,3 +56,7 @@ about:
   home: http://hmmer.org/
   license: BSD
   license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - sdvillal
